@@ -1,3 +1,5 @@
+![.NET Core CI](https://github.com/davidrodjen/FoodTruck/workflows/.NET%20Core%20CI/badge.svg)
+
 # FoodTruck
 This website is a project oriented as a adaptive business in light of recent historical events.
 
