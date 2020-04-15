@@ -28,6 +28,11 @@ namespace FoodTruck.Models
 
         }
 
+        /// <summary>
+        /// Creates User and Admin roles upon startup
+        /// </summary>
+        /// <param name="roles">Admin/User Roles</param>
+        /// <returns></returns>
         public static async Task CreateRoles(IServiceProvider provider, params string[] roles)
         {
             RoleManager<IdentityRole> roleManager = provider.GetRequiredService<RoleManager<IdentityRole>>();
