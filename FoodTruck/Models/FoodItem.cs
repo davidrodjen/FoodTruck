@@ -15,7 +15,7 @@ namespace FoodTruck.Models
         public int ItemID { get; set; }
 
         /// <summary>
-        /// Item name required, inclues error message
+        /// Item name required, includes error message
         /// EX: "Cheeseburger"
         /// </summary>
         [Required(ErrorMessage = "Name is required")]
@@ -37,7 +37,7 @@ namespace FoodTruck.Models
         /// </summary>
         [Required(ErrorMessage = "Description is required")]
         [StringLength(400)]
-        public string Descrip { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Calorie count, not required, but suggested for diet
