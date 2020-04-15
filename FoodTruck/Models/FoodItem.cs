@@ -10,22 +10,24 @@ namespace FoodTruck.Models
     {
 
         [Key]
-        [Required]
         public int ItemID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(30)]
         public string ItemName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Price is required")]
+        [DataType(DataType.Currency)]
+        [Range(0.0, 200.0)]
         public double Price { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Description is required")]
+        [StringLength(400)]
         public string Descrip { get; set; }
 
-        [Required]
+        [Range(0, 2000)]
         public int Calories { get; set; }
 
-        [Required]
         public bool Vegan { get; set; }
 
 
