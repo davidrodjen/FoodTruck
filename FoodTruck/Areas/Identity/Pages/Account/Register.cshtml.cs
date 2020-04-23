@@ -47,6 +47,12 @@ namespace FoodTruck.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            public string FirstName { get; set; }
+
+            public string LastName { get; set; }
+
+            public int PhoneNumber { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
