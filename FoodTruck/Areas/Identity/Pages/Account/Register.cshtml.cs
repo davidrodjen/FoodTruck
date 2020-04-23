@@ -47,10 +47,18 @@ namespace FoodTruck.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required]
+            [StringLength(20)]
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
 
+            [Required]
+            [StringLength(20)]
+            [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Phone Number")]
             public int PhoneNumber { get; set; }
 
             [Required]
