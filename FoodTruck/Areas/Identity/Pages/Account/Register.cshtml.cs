@@ -47,17 +47,49 @@ namespace FoodTruck.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            /// <summary>
+            /// First Name of Account Holder
+            /// </summary>
+            [Required]
+            [StringLength(20)]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            /// <summary>
+            /// Last Name of Account Holder
+            /// </summary>
+            [Required]
+            [StringLength(20)]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            /// <summary>
+            /// Phone Number of Account Holder
+            /// </summary>
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Phone Number")]
+            public int PhoneNumber { get; set; }
+
+            /// <summary>
+            /// Email of Account Holder
+            /// </summary>
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            /// <summary>
+            /// Password of Account Holder
+            /// </summary>
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
+            /// <summary>
+            /// Confirming the Password of the Account Holder
+            /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
