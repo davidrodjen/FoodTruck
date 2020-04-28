@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FoodTruck.Models;
 
 namespace FoodTruck.Data
 {
@@ -12,5 +13,6 @@ namespace FoodTruck.Data
             : base(options)
         {
         }
+        public DbSet<FoodTruck.Models.FoodItem> FoodItem { get; set; }
     }
 }
