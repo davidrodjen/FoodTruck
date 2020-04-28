@@ -66,8 +66,7 @@ namespace FoodTruck.Areas.Identity.Pages.Account
             /// <summary>
             /// Phone Number of Account Holder
             /// </summary>
-            [DataType(DataType.PhoneNumber)]
-            [Display(Name = "Phone Number")]
+            [Display(Name = "Phone Number(Optional)")]
             public int PhoneNumber { get; set; }
 
             /// <summary>
