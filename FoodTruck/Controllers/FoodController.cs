@@ -9,9 +9,17 @@ namespace FoodTruck.Controllers
     public class FoodController : Controller
     {
 
-        public IActionResult Index()
+        public IActionResult FoodTruckMenu()
         {
             return View();
         }
+
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
     }
 }
