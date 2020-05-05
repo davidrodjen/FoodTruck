@@ -67,7 +67,9 @@ namespace FoodTruck.Areas.Identity.Pages.Account
             /// Phone Number of Account Holder
             /// </summary>
             [Display(Name = "Phone Number(Optional)")]
-            public int PhoneNumber { get; set; }
+            [DataType(DataType.PhoneNumber)]
+            [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+            public string PhoneNumber { get; set; }
 
             /// <summary>
             /// Email of Account Holder
