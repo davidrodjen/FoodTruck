@@ -1,16 +1,16 @@
 ﻿@model FoodTruck.Models.FoodItem
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Add";
 }
 
-<h1>Index</h1>
+<h1>Add</h1>
 
 <h4>FoodItem</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Index">
+        <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ItemName" class="control-label"></label>
@@ -48,6 +48,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
