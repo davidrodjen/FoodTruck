@@ -13,6 +13,6 @@ namespace FoodTruck.Data
             : base(options)
         {
         }
-        public DbSet<FoodTruck.Models.FoodItem> FoodItem { get; set; }
+        public DbSet<FoodItem> FoodItem { get; set; }
     }
 }
