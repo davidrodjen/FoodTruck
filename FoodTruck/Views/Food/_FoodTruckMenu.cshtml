@@ -28,25 +28,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (FoodItem food in ViewBag.FoodBag) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemID)
+                @Html.DisplayFor(modelItem => food.ItemID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemName)
+                @Html.DisplayFor(modelItem => food.ItemName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => food.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => food.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Calories)
+                @Html.DisplayFor(modelItem => food.Calories)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vegan)
+                @Html.DisplayFor(modelItem => food.Vegan)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
