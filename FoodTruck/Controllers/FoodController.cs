@@ -21,10 +21,11 @@ namespace FoodTruck.Controllers
             _context = context;
         }
 
-
+        [HttpGet]
         public IActionResult FoodTruckMenu()
         {
-            return View();
+            List<FoodItem> foods = new List<FoodItem>();
+            return View(foods);
         }
 
 
