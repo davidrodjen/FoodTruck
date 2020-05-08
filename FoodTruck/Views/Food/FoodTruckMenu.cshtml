@@ -1,4 +1,5 @@
-﻿@model FoodItem
+﻿@*@model FoodItem*@
+@model IEnumerable<FoodItem>
 
 @{
 	ViewData["Title"] = "FoodTruckMenu";
@@ -8,9 +9,11 @@
 
 
 <p>
-<a class="btn btn-outline-primary" asp-action="Add"
-   asp-controller="Food">
-	Add New Menu Item
-</a>
+	<a class="btn btn-outline-primary" asp-action="Add"
+	   asp-controller="Food">
+		Add New Menu Item
+	</a>
 </p>
+
+@await Html.PartialAsync("_FoodTruckMenu", Model)
 

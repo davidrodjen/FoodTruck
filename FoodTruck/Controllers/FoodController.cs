@@ -21,9 +21,11 @@ namespace FoodTruck.Controllers
             _context = context;
         }
 
-
-        public IActionResult FoodTruckMenu()
+        [HttpGet]
+        public async Task<IActionResult> FoodTruckMenu()
         {
+            ViewBag.FoodBag = await MenuDb.GetFoodItems(_context);
+
             return View();
         }
 
