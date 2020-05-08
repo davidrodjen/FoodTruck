@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTruck.Controllers
 {
-    
+
 
 
     public class FoodController : Controller
@@ -47,6 +47,29 @@ namespace FoodTruck.Controllers
             }
 
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            FoodItem food = await MenuDb.GetFoodItemById(id, _context);
+
+            if (food == null)
+            {
+                return NotFound();
+            }
+
+            return View(food);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            FoodItem food = await MenuDb.GetFoodItemById(id, _context);
+            await MenuDb.Delete(food, _context);
+            TempData["Message"] = $"{food.ItemName} deleted successfully";
+            return RedirectToAction(nameof(FoodTruckMenu));
         }
 
     }

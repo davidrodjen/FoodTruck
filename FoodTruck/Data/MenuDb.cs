@@ -25,5 +25,21 @@ namespace FoodTruck.Data
 
             return food;
         }
+
+        public async static Task Delete(FoodItem food, ApplicationDbContext context)
+        {
+            await context.AddAsync(food);
+            context.Entry(food).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+        }
+
+        public static async Task<FoodItem> GetFoodItemById(int id, ApplicationDbContext context)
+        {
+            FoodItem food = await (from FoodItem in context.FoodItem
+                                   where FoodItem.ItemID == id
+                                   select FoodItem).SingleOrDefaultAsync();
+
+            return food;
+        }
     }
 }
