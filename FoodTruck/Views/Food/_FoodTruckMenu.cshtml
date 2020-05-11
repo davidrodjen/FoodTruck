@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<FoodTruck.Models.FoodItem>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -28,33 +30,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (FoodItem food in ViewBag.FoodBag) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => food.ItemID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => food.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => food.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => food.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => food.Calories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => food.Vegan)
-            </td>
-			<td>
-
-				@*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@FoodItem.ItemID">Edit</a> <text>|</text>*@
-				<a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
-
-			</td>
-        </tr>
-}
+        @foreach (FoodItem food in ViewBag.FoodBag)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => food.ItemID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => food.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => food.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => food.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => food.Calories)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => food.Vegan)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@FoodItem.ItemID">Edit</a> <text>|</text>*@
+                        <a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
