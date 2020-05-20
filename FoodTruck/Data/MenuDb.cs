@@ -41,5 +41,13 @@ namespace FoodTruck.Data
 
             return food;
         }
+
+        public static async Task<FoodItem> Edit(FoodItem food, ApplicationDbContext context)
+        {
+            await context.AddAsync(food);
+            context.Entry(food).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return food;
+        }
     }
 }

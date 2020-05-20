@@ -48,7 +48,7 @@
                 <td>
                     @if (User.IsInRole("Admin"))
                     {
-                        @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@FoodItem.ItemID">Edit</a> <text>|</text>*@
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@food.ItemID">Edit</a> <text>|</text>
                         <a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
                     }
                 </td>
