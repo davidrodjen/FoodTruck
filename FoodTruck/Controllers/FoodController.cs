@@ -72,5 +72,36 @@ namespace FoodTruck.Controllers
             return RedirectToAction(nameof(FoodTruckMenu));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                // HTTP 400
+                return BadRequest();
+            }
+            FoodItem food = await MenuDb.GetFoodItemById(id.Value, _context);
+
+            if (food == null) // Clothing item is not found in the DB
+            {
+                return NotFound(); // returns a HTTP 404 - Not Found
+                // return RedirectToAction("ShowAll"); // Returns the user to the ShowAll Page
+            }
+
+            return View(food);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(FoodItem food)
+        {
+            if (ModelState.IsValid)
+            {
+                await MenuDb.Edit(food, _context);
+                ViewData["Message"] = food.ItemName + " updated successfully";
+                return View(food);
+            }
+
+            return View(food);
+        }
     }
 }
