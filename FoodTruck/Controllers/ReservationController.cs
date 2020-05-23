@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FoodTruck.Data;
+using FoodTruck.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,12 +18,33 @@ namespace FoodTruck.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> FoodTruckMenu()
+        {
+            ViewBag.FoodBag = await MenuDb.GetFoodItems(_context);
+
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult AddReservation()
         {
             return View();
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> AddReservation(Reservation res)
+        {
+            if (ModelState.IsValid)
+            {
+                await MenuDb.Add(res, _context);
+                TempData["Message"] = $"{res.EventName} added successfully";
+                // Had to redirect forcefully to the main menu for food truck
+                return RedirectToAction("FoodTruckMenu", "Food");
+
+            }
+            return View();
+        }
     }
 }
