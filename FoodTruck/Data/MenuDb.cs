@@ -49,5 +49,14 @@ namespace FoodTruck.Data
             await context.SaveChangesAsync();
             return food;
         }
+
+
+        public static async Task<Reservation> Add(Reservation res, ApplicationDbContext context)
+        {
+            await context.AddAsync(res);
+            await context.SaveChangesAsync();
+            return res;
+        }
+
     }
 }

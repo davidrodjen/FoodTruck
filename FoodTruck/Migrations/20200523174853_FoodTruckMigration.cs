@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodTruck.Migrations
 {
-    public partial class FoodItemMigration : Migration
+    public partial class FoodTruckMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,24 @@ namespace FoodTruck.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FoodItem", x => x.ItemID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reservations",
+                columns: table => new
+                {
+                    ReservationId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventName = table.Column<string>(nullable: true),
+                    NumGuests = table.Column<int>(nullable: false),
+                    PackageDescription = table.Column<string>(nullable: false),
+                    DeliveryDate = table.Column<DateTime>(nullable: false),
+                    Location = table.Column<string>(nullable: false),
+                    Price = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservations", x => x.ReservationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -228,6 +246,9 @@ namespace FoodTruck.Migrations
 
             migrationBuilder.DropTable(
                 name: "FoodItem");
+
+            migrationBuilder.DropTable(
+                name: "Reservations");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

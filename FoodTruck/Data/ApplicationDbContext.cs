@@ -14,5 +14,7 @@ namespace FoodTruck.Data
         {
         }
         public DbSet<FoodItem> FoodItem { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }
