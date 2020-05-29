@@ -46,5 +46,29 @@ namespace FoodTruck.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Reservation res = await MenuDb.GetReservationById(id, _context);
+
+            if (res == null)
+            {
+                return NotFound();
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            Reservation res = await MenuDb.GetReservationById(id, _context);
+            await MenuDb.Delete(res, _context);
+            TempData["Message"] = $"{res.EventName} deleted successfully";
+            return RedirectToAction(nameof(FoodTruckMenu));
+        }
+
     }
 }
