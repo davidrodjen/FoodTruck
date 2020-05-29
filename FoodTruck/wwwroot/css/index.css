@@ -1,0 +1,23 @@
+﻿
+.index-body {
+	background-image: url("../HomePageImages/beautifulBurger.jpeg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	color: white;
+}
+
+h3 {
+	text-align: center;
+}
+
+#mainBio {
+	text-align:center;
+	float: right;
+	font-style:italic;
+}
+
+p {
+	text-align: center;
+	float: left;
+	font-style: italic;
+}
