@@ -67,7 +67,7 @@ namespace FoodTruck.Controllers
             Reservation res = await MenuDb.GetReservationById(id, _context);
             await MenuDb.Delete(res, _context);
             TempData["Message"] = $"{res.EventName} deleted successfully";
-            return RedirectToAction(nameof(FoodTruckMenu));
+            return RedirectToAction("FoodTruckMenu", "Food");
         }
 
     }
