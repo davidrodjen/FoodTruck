@@ -42,6 +42,15 @@ namespace FoodTruck.Data
             return food;
         }
 
+        public static async Task<Reservation> GetReservationById(int id, ApplicationDbContext context)
+        {
+            Reservation reservation = await (from Reservation in context.Reservations
+                                   where Reservation.ReservationId == id
+                                   select Reservation).SingleOrDefaultAsync();
+
+            return reservation;
+        }
+
         public static async Task<FoodItem> Edit(FoodItem food, ApplicationDbContext context)
         {
             await context.AddAsync(food);
@@ -58,5 +67,11 @@ namespace FoodTruck.Data
             return res;
         }
 
+        public async static Task Delete(Reservation res, ApplicationDbContext context)
+        {
+            await context.AddAsync(res);
+            context.Entry(res).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+        }
     }
 }
