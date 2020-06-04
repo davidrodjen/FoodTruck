@@ -8,12 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodTruck.Controllers
 {
-
-
-
     public class FoodController : Controller
     {
-
         private readonly ApplicationDbContext _context; // Only constructor can edit
 
         public FoodController(ApplicationDbContext context)
