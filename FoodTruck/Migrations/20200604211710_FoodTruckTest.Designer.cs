@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTruck.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200523174853_FoodTruckMigration")]
-    partial class FoodTruckMigration
+    [Migration("20200604211710_FoodTruckTest")]
+    partial class FoodTruckTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

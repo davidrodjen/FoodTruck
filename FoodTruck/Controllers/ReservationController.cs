@@ -19,9 +19,9 @@ namespace FoodTruck.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> FoodTruckMenu()
+        public async Task<IActionResult> FoodTruckReservation()
         {
-            ViewBag.FoodBag = await MenuDb.GetFoodItems(_context);
+            ViewBag.ReservationBag = await MenuDb.GetReservations(_context);
 
             return View();
         }
