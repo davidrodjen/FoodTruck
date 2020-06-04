@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodTruck.Migrations
 {
-    public partial class FoodTruckMigration : Migration
+    public partial class FoodTruckTest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
