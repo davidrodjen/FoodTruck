@@ -17,6 +17,12 @@ namespace FoodTruck.Data
             return f;
 
         }
+        public static async Task<List<Reservation>> GetReservations(ApplicationDbContext context)
+        {
+            List<Reservation> res = await (from Reservation in context.Reservations
+                                           select Reservation).ToListAsync();
+            return res;
+        }
 
         public static async Task<FoodItem> Add(FoodItem food, ApplicationDbContext context)
         {
