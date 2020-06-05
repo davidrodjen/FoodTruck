@@ -41,7 +41,7 @@ namespace FoodTruck.Controllers
                 await MenuDb.Add(res, _context);
                 TempData["Message"] = $"{res.EventName} added successfully";
                 // Had to redirect forcefully to the main menu for food truck
-                return RedirectToAction("FoodTruckMenu", "Food");
+                return RedirectToAction("FoodTruckReservation", "Reservation");
 
             }
             return View();
