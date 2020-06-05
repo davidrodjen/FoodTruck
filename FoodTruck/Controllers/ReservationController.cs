@@ -57,7 +57,7 @@ namespace FoodTruck.Controllers
                 return NotFound();
             }
 
-            return View();
+            return View(res);
         }
 
         [HttpPost]
@@ -65,9 +65,9 @@ namespace FoodTruck.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             Reservation res = await MenuDb.GetReservationById(id, _context);
-            await MenuDb.Delete(res, _context);
+            await MenuDb.DeleteReservation(res, _context);
             TempData["Message"] = $"{res.EventName} deleted successfully";
-            return RedirectToAction("FoodTruckMenu", "Food");
+            return RedirectToAction("FoodTruckReservation", "Reservation");
         }
 
     }
