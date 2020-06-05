@@ -1,7 +1,7 @@
 ﻿@model FoodTruck.Models.Reservation
 
 @{
-    ViewData["Title"] = "DeleteReservation";
+    ViewData["Title"] = "Delete";
 }
 
 <h1>DeleteReservation</h1>
@@ -55,8 +55,8 @@
         </dd>
     </dl>
     
-    <form asp-action="DeleteReservation">
+    <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="FoodTruckMenu">Back to List</a>
+		<a asp-controller="Reservation" asp-action="FoodTruckReservation">Back to List</a>
     </form>
 </div>
