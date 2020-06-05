@@ -73,7 +73,7 @@ namespace FoodTruck.Data
             return res;
         }
 
-        public async static Task Delete(Reservation res, ApplicationDbContext context)
+        public async static Task DeleteReservation(Reservation res, ApplicationDbContext context)
         {
             await context.AddAsync(res);
             context.Entry(res).State = EntityState.Deleted;
