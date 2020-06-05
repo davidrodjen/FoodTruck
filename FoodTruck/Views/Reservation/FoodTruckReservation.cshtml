@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<FoodTruck.Models.Reservation>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+	<p>
+		<a class="btn btn-outline-primary" asp-action="AddReservation"
+		   asp-controller="Reservation">
+			Add New Reservation
+		</a>
+	</p>
 <table class="table">
     <thead>
         <tr>
