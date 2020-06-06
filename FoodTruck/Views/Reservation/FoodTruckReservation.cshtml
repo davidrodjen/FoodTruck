@@ -58,10 +58,8 @@
                 @Html.DisplayFor(modelItem => res.Price)
             </td>
 			<td>
+				<a class="btn btn-warning" asp-action="EditReservation" asp-route-id="@res.ReservationId">Edit</a> <text>|</text>
 				<a class="btn btn-warning" asp-action="Delete" asp-route-id="@res.ReservationId">Delete</a>
-				@*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-		        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-		        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
 			</td>
         </tr>
 }
