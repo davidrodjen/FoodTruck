@@ -70,5 +70,35 @@ namespace FoodTruck.Controllers
             return RedirectToAction("FoodTruckReservation", "Reservation");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditReservation(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            Reservation res = await MenuDb.GetReservationById(id.Value, _context);
+
+            if (res == null)
+            {
+                return NotFound();
+            }
+
+            return View(res);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditReservation(Reservation res)
+        {
+            if (ModelState.IsValid)
+            {
+                await MenuDb.EditReservation(res, _context);
+                ViewData["Message"] = res.EventName + " updated successfully";
+            }
+
+            return View(res);
+        }
+
+
     }
 }
