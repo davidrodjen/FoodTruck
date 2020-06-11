@@ -79,5 +79,13 @@ namespace FoodTruck.Data
             context.Entry(res).State = EntityState.Deleted;
             await context.SaveChangesAsync();
         }
+
+        public static async Task<Reservation> EditReservation(Reservation res, ApplicationDbContext context)
+        {
+            await context.AddAsync(res);
+            context.Entry(res).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return res;
+        }
     }
 }

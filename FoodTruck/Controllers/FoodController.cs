@@ -78,7 +78,7 @@ namespace FoodTruck.Controllers
             }
             FoodItem food = await MenuDb.GetFoodItemById(id.Value, _context);
 
-            if (food == null) // Clothing item is not found in the DB
+            if (food == null) 
             {
                 return NotFound(); // returns a HTTP 404 - Not Found
                 // return RedirectToAction("ShowAll"); // Returns the user to the ShowAll Page
