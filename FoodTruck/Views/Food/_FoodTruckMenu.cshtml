@@ -1,58 +1,75 @@
 ﻿@model IEnumerable<FoodTruck.Models.FoodItem>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Calories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vegan)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (FoodItem food in ViewBag.FoodBag)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => food.ItemID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => food.ItemName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => food.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => food.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => food.Calories)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => food.Vegan)
-                </td>
-                <td>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@food.ItemID">Edit</a> <text>|</text>
-                        <a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.ItemID)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ItemName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Description)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Calories)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Vegan)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
 </table>
+@foreach (FoodItem food in ViewBag.FoodBag)
+{
+	<div class="card" style="width: 18rem; float:left; margin-left: 50px; margin-bottom: 25px;">
+		<img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+		<div class="card-body">
+			<h5 class="card-title">
+				@Html.DisplayFor(modelItem => food.ItemName)
+				@Html.DisplayFor(modelItem => food.Price)
+			</h5>
+			<p class="card-text">
+				@Html.DisplayFor(modelItem => food.Description)
+				@Html.DisplayFor(modelItem => food.Calories)
+				@Html.DisplayFor(modelItem => food.Vegan)
+			</p>
+		</div>
+	</div>
+}
+@*<tbody>
+		@foreach (FoodItem food in ViewBag.FoodBag)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => food.ItemID)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => food.ItemName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => food.Price)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => food.Description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => food.Calories)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => food.Vegan)
+				</td>
+				<td>
+					@if (User.IsInRole("Admin"))
+					{
+						<a class="btn btn-warning" asp-action="Edit" asp-route-id="@food.ItemID">Edit</a> <text>|</text>
+						<a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
+					}
+				</td>
+			</tr>
+		}
+	</tbody>*@
