@@ -29,9 +29,12 @@
 						<li class="nav-item">
 							<a class="nav-link text-light" asp-area="" asp-controller="Food" asp-action="FoodTruckMenu">Menu</a>
 						</li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Reservation" asp-action="FoodTruckReservation">Reservation</a>
-                        </li>
+						@if (User.IsInRole("Admin"))
+						{
+							<li class="nav-item">
+								<a class="nav-link text-light" asp-area="" asp-controller="Reservation" asp-action="FoodTruckReservation">Reservation</a>
+							</li>
+						}
 					</ul>
                 </div>
             </div>
