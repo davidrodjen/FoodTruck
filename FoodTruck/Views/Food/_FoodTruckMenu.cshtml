@@ -38,38 +38,11 @@
 				@Html.DisplayFor(modelItem => food.Calories)
 				@Html.DisplayFor(modelItem => food.Vegan)
 			</p>
+			@if (User.IsInRole("Admin"))
+			{
+				<a class="btn btn-warning" asp-action="Edit" asp-route-id="@food.ItemID">Edit</a> <text>|</text>
+				<a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
+			}
 		</div>
 	</div>
 }
-@*<tbody>
-		@foreach (FoodItem food in ViewBag.FoodBag)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => food.ItemID)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => food.ItemName)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => food.Price)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => food.Description)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => food.Calories)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => food.Vegan)
-				</td>
-				<td>
-					@if (User.IsInRole("Admin"))
-					{
-						<a class="btn btn-warning" asp-action="Edit" asp-route-id="@food.ItemID">Edit</a> <text>|</text>
-						<a class="btn btn-warning" asp-action="Delete" asp-route-id="@food.ItemID">Delete</a>
-					}
-				</td>
-			</tr>
-		}
-	</tbody>*@
