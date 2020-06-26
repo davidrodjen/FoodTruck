@@ -1,8 +1,5 @@
 ![.NET Core CI](https://github.com/davidrodjen/FoodTruck/workflows/.NET%20Core%20CI/badge.svg)
 
-# URL
-FoodTruck is viewable at this link here (https://davidrodjen.github.io/FoodTruck/.)
-
 # FoodTruck
 This website is a project oriented as a adaptive business in light of recent historical events.
 
