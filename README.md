@@ -8,6 +8,19 @@ This website is a project oriented as a adaptive business in light of recent his
 
 Menu will always be available, unless an item is removed by the Admin for whatever reason. Current location will be displayed on the front page with a map. Client can log in and place orders for food, enter the delivery address or street corner, social distancing encouraged, truck will arrive, serve customers for catering but also take on-demand orders. Catering can be ordered specifically but walk-ups will still be able to place orders. This is when an alert will notify current and previous customers that the truck is available in the area.
 
+# Gallery
+
+![FoodTruckMenu](FoodTruck/wwwroot/ReadMeImages/MainMenu.png)
+
+![FoodTruckMenu](FoodTruck/wwwroot/ReadMeImages/Menu.png)
+
+![FoodTruckMenu](FoodTruck/wwwroot/ReadMeImages/FoodItemCrud.png)
+
+![FoodTruckMenu](FoodTruck/wwwroot/ReadMeImages/Register.png)
+
+![FoodTruckMenu](FoodTruck/wwwroot/ReadMeImages/ReservationCrud.PNG)
+
+
 
 ## Coding Guidelines
 See [Guidelines](CodeGuidelines.md)
